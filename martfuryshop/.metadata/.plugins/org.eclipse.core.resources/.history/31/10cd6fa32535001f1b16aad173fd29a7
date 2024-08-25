@@ -1,0 +1,40 @@
+package vn.fs.vnpay;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class VNPayRequest {
+    private String vnp_TmnCode;
+    private String vnp_Amount;
+    private String vnp_Command;
+    private String vnp_CreateDate;
+    private String vnp_CurrCode;
+    private String vnp_IpAddr;
+    private String vnp_Locale;
+    private String vnp_OrderInfo;
+    private String vnp_OrderType;
+    private String vnp_ReturnUrl;
+    private String vnp_TxnRef;
+    private String vnp_Version;
+    private String vnp_SecureHashType;
+    private String vnp_SecureHash;
+
+    // Getters and Setters
+
+    public static Map<String, String> getMapFields(VNPayRequest vnpRequest) {
+        Map<String, String> fields = new HashMap<>();
+        fields.put("vnp_Version", vnpRequest.getVnp_Version());
+        fields.put("vnp_Command", vnpRequest.getVnp_Command());
+        fields.put("vnp_TmnCode", vnpRequest.getVnp_TmnCode());
+        fields.put("vnp_Amount", vnpRequest.getVnp_Amount());
+        fields.put("vnp_CurrCode", vnpRequest.getVnp_CurrCode());
+        fields.put("vnp_TxnRef", vnpRequest.getVnp_TxnRef());
+        fields.put("vnp_OrderInfo", vnpRequest.getVnp_OrderInfo());
+        fields.put("vnp_OrderType", vnpRequest.getVnp_OrderType());
+        fields.put("vnp_CreateDate", vnpRequest.getVnp_CreateDate());
+        fields.put("vnp_IpAddr", vnpRequest.getVnp_IpAddr());
+        fields.put("vnp_ReturnUrl", vnpRequest.getVnp_ReturnUrl());
+        fields.put("vnp_Locale", vnpRequest.getVnp_Locale());
+        return fields;
+    }
+}

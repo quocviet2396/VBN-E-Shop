@@ -1,0 +1,115 @@
+package vn.fs.vnpay;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class VNPayRequest {
+    private String vnp_Version;
+    private String vnp_Command;
+    private String vnp_TmnCode;
+    private Long vnp_Amount;
+    private String vnp_CurrCode;
+    private String vnp_IpAddr;
+    private String vnp_OrderInfo;
+    private String vnp_OrderType;
+    private String vnp_ReturnUrl;
+
+    // Getters and setters
+    public String getVnp_Version() {
+        return vnp_Version;
+    }
+
+    public void setVnp_Version(String vnp_Version) {
+        this.vnp_Version = vnp_Version;
+    }
+
+    public String getVnp_Command() {
+        return vnp_Command;
+    }
+
+    public void setVnp_Command(String vnp_Command) {
+        this.vnp_Command = vnp_Command;
+    }
+
+    public String getVnp_TmnCode() {
+        return vnp_TmnCode;
+    }
+
+    public void setVnp_TmnCode(String vnp_TmnCode) {
+        this.vnp_TmnCode = vnp_TmnCode;
+    }
+
+    public Long getVnp_Amount() {
+        return vnp_Amount;
+    }
+
+    public void setVnp_Amount(Long vnp_Amount) {
+        this.vnp_Amount = vnp_Amount;
+    }
+
+    public String getVnp_CurrCode() {
+        return vnp_CurrCode;
+    }
+
+    public void setVnp_CurrCode(String vnp_CurrCode) {
+        this.vnp_CurrCode = vnp_CurrCode;
+    }
+
+    public String getVnp_IpAddr() {
+        return vnp_IpAddr;
+    }
+
+    public void setVnp_IpAddr(String vnp_IpAddr) {
+        this.vnp_IpAddr = vnp_IpAddr;
+    }
+
+    public String getVnp_OrderInfo() {
+        return vnp_OrderInfo;
+    }
+
+    public void setVnp_OrderInfo(String vnp_OrderInfo) {
+        this.vnp_OrderInfo = vnp_OrderInfo;
+    }
+
+    public String getVnp_OrderType() {
+        return vnp_OrderType;
+    }
+
+    public void setVnp_OrderType(String vnp_OrderType) {
+        this.vnp_OrderType = vnp_OrderType;
+    }
+
+    public String getVnp_ReturnUrl() {
+        return vnp_ReturnUrl;
+    }
+
+    public void setVnp_ReturnUrl(String vnp_ReturnUrl) {
+        this.vnp_ReturnUrl = vnp_ReturnUrl;
+    }
+
+    // Method to create VNPay request URL with parameters
+    public String createRequestUrl() {
+        Map<String, String> params = new HashMap<>();
+        params.put("vnp_Version", this.vnp_Version);
+        params.put("vnp_Command", this.vnp_Command);
+        params.put("vnp_TmnCode", this.vnp_TmnCode);
+        params.put("vnp_Amount", String.valueOf(this.vnp_Amount));
+        params.put("vnp_CurrCode", this.vnp_CurrCode);
+        params.put("vnp_IpAddr", this.vnp_IpAddr);
+        params.put("vnp_OrderInfo", this.vnp_OrderInfo);
+        params.put("vnp_OrderType", this.vnp_OrderType);
+        params.put("vnp_ReturnUrl", this.vnp_ReturnUrl);
+
+        StringBuilder queryString = new StringBuilder();
+        boolean first = true;
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            if (!first) {
+                queryString.append('&');
+            }
+            queryString.append(entry.getKey()).append('=').append(entry.getValue());
+            first = false;
+        }
+
+        return queryString.toString();
+    }
+}

@@ -1,0 +1,20 @@
+package vn.fs.vnpay;
+
+public class VNPayResponse {
+    private String message;
+
+    public VNPayResponse(String message) {
+        this.message = message;
+    }
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+    // Getters and Setters
+    
+}
